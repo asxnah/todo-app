@@ -8,19 +8,13 @@ export const TodoPage = () => {
       {/* Абстрактная волна справа сверху */}
       <div
         className="absolute -top-[20%] -right-[10%] w-[75vw] h-[75vw] max-w-[1000px] max-h-[1000px] bg-[#F7E5E5] pointer-events-none opacity-90"
-        style={{
-          borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
-          transform: 'rotate(-20deg)',
-        }}
+        style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%', transform: 'rotate(-20deg)' }}
       ></div>
 
       {/* Абстрактная волна слева снизу */}
       <div
         className="absolute -bottom-[25%] -left-[15%] w-[65vw] h-[65vw] max-w-[900px] max-h-[900px] bg-[#F7E5E5] pointer-events-none opacity-90"
-        style={{
-          borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-          transform: 'rotate(25deg)',
-        }}
+        style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%', transform: 'rotate(25deg)' }}
       ></div>
 
       {/* Основная карточка */}
@@ -47,9 +41,13 @@ export const TodoPage = () => {
             </div>
           </div>
 
-          {/* Котик */}
+          {/* Котик с правильным путем для GitHub Pages */}
           <div className="hidden md:block absolute -top-10 right-0">
-            <img src="/cat.png" alt="Спящий котик" className="w-48 h-auto object-contain" />
+            <img
+              src={`${import.meta.env.BASE_URL}cat.png`}
+              alt="Спящий котик"
+              className="w-48 h-auto object-contain"
+            />
           </div>
         </div>
 
