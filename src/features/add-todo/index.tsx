@@ -12,7 +12,12 @@ type FormData = z.infer<typeof schema>;
 
 export const AddTodoForm = () => {
   const addTodo = useTodoStore((state) => state.addTodo);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
@@ -34,7 +39,11 @@ export const AddTodoForm = () => {
       >
         <Plus size={24} />
       </button>
-      {errors.title && <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-2">{errors.title.message}</span>}
+      {errors.title && (
+        <span className="text-red-400 text-sm mt-1 absolute -bottom-6 left-2">
+          {errors.title.message}
+        </span>
+      )}
     </form>
   );
 };

@@ -5,7 +5,11 @@ export const TodoList = () => {
   const todos = useTodoStore((state) => state.todos);
 
   if (todos.length === 0) {
-    return <div className="text-center text-pastel-textLight py-8">Пока задач нет. Добавьте первую! 🐾</div>;
+    return (
+      <div className="text-center text-pastel-textLight py-8">
+        Пока задач нет. Добавьте первую! 🐾
+      </div>
+    );
   }
 
   return (
