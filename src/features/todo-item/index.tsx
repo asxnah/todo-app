@@ -18,10 +18,14 @@ export const TodoItem = ({ todo }: Props) => {
           : 'bg-white border-pastel-border hover:border-pastel-primary/30'
       )}
     >
+      {/* Кнопка-чекбокс с доступностью */}
       <button
+        role="checkbox"
+        aria-checked={todo.completed}
+        aria-label={todo.completed ? 'Отметить как невыполненную' : 'Отметить как выполненную'}
         onClick={() => toggleTodo(todo.id)}
         className={clsx(
-          'w-7 h-7 rounded-full border-2 flex items-center justify-center transition-colors shrink-0',
+          'w-7 h-7 rounded-full border-2 flex items-center justify-center transition-all shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-pastel-primary active:scale-90',
           todo.completed
             ? 'bg-pastel-primary border-pastel-primary text-white'
             : 'border-pastel-border text-transparent hover:border-pastel-primary'
@@ -32,16 +36,18 @@ export const TodoItem = ({ todo }: Props) => {
 
       <span
         className={clsx(
-          'flex-1 text-lg transition-all',
+          'flex-1 text-lg transition-all break-all',
           todo.completed ? 'line-through text-pastel-textLight' : 'text-pastel-text'
         )}
       >
         {todo.title}
       </span>
 
+      {/* Кнопка удаления с доступностью */}
       <button
         onClick={() => removeTodo(todo.id)}
-        className="text-pastel-textLight hover:text-red-400 transition-colors p-2"
+        aria-label="Удалить задачу"
+        className="text-pastel-textLight hover:text-red-400 active:scale-90 transition-all p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:text-red-400"
       >
         <Trash2 size={20} />
       </button>

@@ -14,13 +14,21 @@ export const TodoFooter = () => {
         </span>
         <button
           onClick={clearAll}
-          className="flex items-center gap-2 bg-pastel-itemBg hover:bg-red-50 text-pastel-text px-4 py-2 rounded-xl transition-colors"
+          disabled={todos.length === 0}
+          aria-label="Удалить все задачи"
+          className="flex items-center gap-2 bg-pastel-itemBg hover:bg-red-50 hover:text-red-500 active:scale-95 disabled:opacity-50 disabled:active:scale-100 text-pastel-text px-4 py-2 rounded-xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pastel-primary"
         >
           <Trash2 size={16} /> Удалить все
         </button>
       </div>
 
-      <div className="w-full h-2 bg-pastel-itemBg rounded-full overflow-hidden">
+      <div
+        className="w-full h-2 bg-pastel-itemBg rounded-full overflow-hidden"
+        role="progressbar"
+        aria-valuenow={progress}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <div
           className="h-full bg-pastel-primary transition-all duration-500 ease-out"
           style={{ width: `${progress}%` }}
